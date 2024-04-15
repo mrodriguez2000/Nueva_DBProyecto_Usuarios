@@ -47,7 +47,9 @@ VALUES
 (22, 3, 9, 17, 1, 2, '09-23-2021', 6000000),
 (23, 3, 13, 8, 1, 2, '03-30-2023', 6500000),
 (24, 1, 2, 3, 1, 2, '03-15-2010', 7660000),
-(25, 2, 10, 6, 1, 2, '12-10-2022', 5210000);
+(25, 2, 10, 6, 1, 2, '12-10-2022', 5210000),
+(26, 2, 1, 1, 1, 5, '10-30-2019', 4500000),
+(27, 2, 7, 4, 1, 2, '10-06-2022', 4500000);
 
 --	Trabajador_ID INT NOT NULL,
 --	Modalidad_ID INT,
@@ -57,8 +59,8 @@ VALUES
 --	Ciudad_ID INT,
 --	Fecha_Ingreso DATE
 
+-- Prueba para consultar el salario promedio por ciudad
+
 SELECT c.Nombre_Ciudad, FORMAT(ROUND(AVG(dt.Sueldo_Devengado), 0), '$ #,###') AS Sueldo_Promedio, COUNT(*) AS Cantidad_Empleos 
 FROM DetalleTrabajo dt INNER JOIN Ciudad c ON
 c.Ciudad_ID = dt.Ciudad_ID GROUP BY c.Nombre_Ciudad ORDER BY Sueldo_Promedio DESC;
-
-SELECT * FROM DetalleTrabajo;
